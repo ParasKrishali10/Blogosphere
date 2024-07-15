@@ -7,13 +7,13 @@ export const LandingPage=()=>{
             BlogoSphere
         </div>
         <div>
-            <Link to={"/signup"} className="p-3">
+            <Link to={"/signup"} className="p-3 invisible lg:visible">
             Sign Up
             </Link>
-            <Link to={"/signup"} className="p-2">
+            <Link to={"/signup"} className="p-2 invisible lg:visible">
             Write
             </Link>
-        <Link to={"/signin"} className="p-4">
+        <Link to={"/signin"} className="p-4 invisible lg:visible">
                 Sign in
             </Link>
             <Link to={"/signup"}>
