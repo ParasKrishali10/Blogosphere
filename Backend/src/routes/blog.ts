@@ -54,16 +54,30 @@ blogRouter.post("/",async (c) => {
     const prisma = new PrismaClient({
         datasourceUrl: c.env.DATABASE_URL,
       }).$extends(withAccelerate())
-
+      const author = await prisma.user.findUnique({
+        where: {
+          id: authorId,
+        },
+        select: {
+          name: true,
+        },
+      });
+      if (!author) {
+        c.status(404);
+        return c.json({
+          message: "Author not found"
+        });
+      }
       const blog =await prisma.post.create({
         data:{
             title:body.title,
             content:body.content,
-            authorId:authorId
+            authorId:authorId,
         }
       })
       return c.json({
-        id:blog.id
+        id:blog.id,
+        authorName:author.name
       })
 
   })

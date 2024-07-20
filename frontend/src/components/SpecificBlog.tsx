@@ -2,6 +2,7 @@ import { Blog } from "../hooks"
 import { Appbar } from "./Appbar"
 
 export const SpecificBlog=({blog}:{blog:Blog})=>{
+    const currentDate = new Date();
     return <div>
         <Appbar/>
         <div className="grid grid-cols-12 w-full px-16 pt-16">
@@ -11,7 +12,7 @@ export const SpecificBlog=({blog}:{blog:Blog})=>{
             {blog.title}
         </div>
         <div className="pt-3 text-base text-slate-400">
-            Posted on May 10,2024
+            {currentDate.toLocaleDateString()}
         </div>
         <div className="font-sans text-base font-extralight pt-2 text-slate-600">
             {blog.content}

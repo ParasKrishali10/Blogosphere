@@ -9,12 +9,14 @@ export const Publish=()=>{
         try{
             await axios.post(`${BACKEND_URL}/api/v1/blog`,{
                 title,
-                content
+                content,
+                
             },{
                 headers:{
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 }
             })
+
             alert("Your Blog Published Successfully")
         }catch(e)
         {
@@ -25,7 +27,6 @@ export const Publish=()=>{
         <Appbar/>
         <div className="flex justify-center pt-14 px-18">
             <div>
-                
             </div>
             <div>
             <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-11 cursor-pointer mt-5 border-r-2   " onClick={handleClick}>

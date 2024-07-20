@@ -14,6 +14,8 @@ export interface Blog{
 export const useBlog=({id}:{id:string})=>{
   const[loading,setLoading]=useState(true);
   const [blog,setBlog]=useState<Blog>();
+  const [recentDate, setRecentDate] = useState<Date>(new Date());
+
   useEffect(()=>{
       const fetchBlogs = async () => {
           try {
@@ -31,6 +33,7 @@ export const useBlog=({id}:{id:string})=>{
             });
     
             setBlog(response.data.blog);
+            setRecentDate(new Date());
           } catch (error) {
             console.error("Error fetching blogs:", error);
             alert("Error in getting your blogs");
@@ -42,13 +45,14 @@ export const useBlog=({id}:{id:string})=>{
         fetchBlogs();
   },[id])
   return {
-      loading,blog
+      loading,blog,recentDate
   }
 }
 
 export const useBlogs=()=>{
     const[loading,setLoading]=useState(true);
     const [blogs,setBlogs]=useState<Blog[]>([]);
+    const [recentDate, setRecentDate] = useState<Date>(new Date());
     useEffect(()=>{
         const fetchBlogs = async () => {
             try {
@@ -66,6 +70,7 @@ export const useBlogs=()=>{
               });
       
               setBlogs(response.data.blogs);
+              setRecentDate(new Date());
             } catch (error) {
               console.error("Error fetching blogs:", error);
               alert("Error in getting your blogs");
@@ -77,6 +82,6 @@ export const useBlogs=()=>{
           fetchBlogs();
     },[])
     return {
-        loading,blogs
+        loading,blogs,recentDate
     }
 }

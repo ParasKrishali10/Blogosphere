@@ -5,7 +5,7 @@ import { useBlogs } from "../hooks"
 
 
 export const Blogs=()=>{
-    const {loading,blogs}=useBlogs();
+    const {loading,blogs,recentDate}=useBlogs();
     if(loading)
     {
         return <div>
@@ -23,7 +23,7 @@ export const Blogs=()=>{
         <div className="flex justify-center ">
 
         <div  className="p-2">
-          {blogs.map(blog =><BlogLayout id={blog.id} authorName={blog.author.name || "Anonymous"} title={blog.title} content={blog.content} published={"8 July"}/>)}        
+          {blogs.map(blog =><BlogLayout id={blog.id} authorName={blog.author.name|| "Anonymous"} title={blog.title} content={blog.content} published={recentDate.toLocaleDateString()}/>)}        
         
         </div>
         </div>
