@@ -17,7 +17,7 @@ export const LandingPage=()=>{
                 Sign in
             </Link>
             <Link to={"/signup"}>
-                    <button className="font-serif bg-black text-white p-2 rounded-xl">Get Started</button>
+                    <button className="font-serif bg-black text-white p-2 rounded-xl invisible sm:visible">Get Started</button>
             </Link>
            
         </div>
