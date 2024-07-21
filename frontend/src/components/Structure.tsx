@@ -35,7 +35,7 @@ export const Structure = ({ type }: { type: "signup" | "signin" }) => {
           </div>
           <div className="font-semibold mt-1 text-slate-400 ml-1">
             {type === "signin" ? "Don't Have Account ?" : "Already have an account ?"}
-            <Link to={type === "signin" ? "/signin" : "/signup"} className="ml-2 underline">
+            <Link to={type === "signin" ? "/signup" : "/signin"} className="ml-2 underline">
               {type === "signin" ? "Sign Up" : "Sign In"}
             </Link>
           </div>
